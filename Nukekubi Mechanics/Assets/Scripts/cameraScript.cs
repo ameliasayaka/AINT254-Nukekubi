@@ -10,16 +10,12 @@ public class cameraScript : MonoBehaviour {
     private Quaternion rotation;
     private float horizontalPosition;
     private Vector3 cameraPos;
-    private LayerMask wallLayer;
-    private RaycastHit ray;
-    private float clipOffset = 0.1f;
-    private Vector3 clipCheckOffset;
     private Vector3 currentOffset;
 
 
     [SerializeField]
     private float rotateSpeed = 1;
-    private float smooth = 4f;
+   // private float smooth = 4f;
 
     
 	// Use this for initialization
@@ -27,14 +23,15 @@ public class cameraScript : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         playerTransform = player.transform;
        
-        clipCheckOffset = new Vector3(0, 1, 0);
+        //sets camera offset
         offset = playerTransform.position - transform.position;
         currentOffset = offset;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        currentOffset = offset * 0.3f;
+        //if colliding, reduce offset so camera doesnt clip walls
+        currentOffset = offset * 0.1f;
 
         if (currentOffset.x < 1)
         {
@@ -53,14 +50,18 @@ public class cameraScript : MonoBehaviour {
 
     // Update is called once per frame
     void LateUpdate () {
+        //rotates view of player
         horizontalPosition = Input.GetAxis("Mouse X") * rotateSpeed;
         playerTransform.Rotate(0, horizontalPosition, 0);
 
         rotationAngle = playerTransform.eulerAngles.y;
         rotation = Quaternion.Euler(0, rotationAngle, 0);
         cameraPos = transform.position;
-        currentOffset = Vector3.Slerp(currentOffset, offset, 0.5f);
 
+        //moves camera from clip to original offset slowly
+        currentOffset = Vector3.Slerp(currentOffset, offset, 1f);
+
+        //Camera follows player position
         transform.position = Vector3.Lerp(cameraPos, playerTransform.position - (rotation * currentOffset), 0.1f);
 
       

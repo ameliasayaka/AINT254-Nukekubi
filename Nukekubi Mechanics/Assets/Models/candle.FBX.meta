@@ -1,30 +1,22 @@
 fileFormatVersion: 2
-guid: 54d0cda18c3768547a30953a14d552ac
+guid: efa4e4edcd6693b43b89193efa63a31a
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Box001
-    100002: //RootNode
-    100004: Object001
-    100006: Object002
-    400000: Box001
-    400002: //RootNode
-    400004: Object001
-    400006: Object002
-    2100000: 'Material #37'
-    2100002: 'Material #25'
-    2300000: Box001
-    2300002: Object001
-    2300004: Object002
-    3300000: Box001
-    3300002: Object001
-    3300004: Object002
-    4300000: Box001
-    4300002: Object001
-    4300004: Object002
-    6400000: Box001
-    6400002: Object001
-    6400004: Object002
+    100000: //RootNode
+    100002: Cone001
+    100004: Cylinder001
+    400000: //RootNode
+    400002: Cone001
+    400004: Cylinder001
+    2100000: 'Material #327'
+    2100002: 'Material #952'
+    2300000: Cone001
+    2300002: Cylinder001
+    3300000: Cone001
+    3300002: Cylinder001
+    4300000: Cone001
+    4300002: Cylinder001
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -56,9 +48,9 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 10
+    globalScale: 5
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1

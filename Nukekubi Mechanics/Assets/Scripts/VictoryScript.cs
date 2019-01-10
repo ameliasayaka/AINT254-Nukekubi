@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class VictoryScript : MonoBehaviour {
 
-    private GameObject playerObject;
+
     public GameObject victoryCanvas;
-    private movementScript moveScript;
     // Use this for initialization
     void Start()
     {
-        playerObject = GameObject.FindGameObjectWithTag("Player");
-        moveScript = playerObject.GetComponent<movementScript>();
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-                Time.timeScale = 0.0001f;
-                victoryCanvas.SetActive(true);
-        
-        }
+            Time.timeScale = 0.0001f;
+            victoryCanvas.SetActive(true);
 
+        }
     }
 }

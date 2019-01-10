@@ -62,7 +62,7 @@ public class attractScript : MonoBehaviour {
             direction = transform.position - playerObjectTransform.position;
             distance = Vector3.Distance(playerObjectTransform.position, transform.position);
             
-            playerObjectRigidbody.AddForce(direction * attractForce * attractOrRepel);
+            playerObjectRigidbody.AddForce(direction * attractForce * attractOrRepel * 1/distance);
         }
 	}
 }
